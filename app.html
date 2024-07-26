@@ -34,6 +34,30 @@
       /* header > a {
         color: red;
       } */
+
+      /* i want to apply anchor tag color blue which is inside header and li */
+
+      header li > a {
+        color: coral;
+      }
+
+      /* imidiate sibling of a tag */
+      /* a ~ a {
+        color: dodgerblue;
+      } */
+
+      h1 ~ a {
+        color: green;
+      }
+
+      /* space */
+      /* all the element inside */
+      /* > */
+      /* immidiate children */
+      /* + */
+      /* immidiate sibling */
+      /* ~ */
+      /* all sibling */
     </style>
   </head>
   <body>
@@ -41,7 +65,9 @@
       <a href="/">Logo</a>
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
+          <li>
+            <a href="/">Home</a>
+          </li>
           <li><a href="/contact">contact</a></li>
           <li><a href="/about">About</a></li>
         </ul>
@@ -49,11 +75,15 @@
       <div>
         <a href="/register">Register</a>
         <a href="/login">Login</a>
+        <button>download</button>
+        <a href="/dowload">Downalod</a>
       </div>
     </header>
     <main>
       <section>
+        <h1>Home Page</h1>
         <a href="/home">Home</a>
+        <a href="/return">return</a>
       </section>
       <section>
         <a href="/about">About</a>
