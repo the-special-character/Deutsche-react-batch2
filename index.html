@@ -142,17 +142,35 @@
     <div>
       <img src="" alt="" loading="lazy" />
 
+      <video width="250" controls poster="./assets/banner@1x.jpg">
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+          type="video/webm"
+        />
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          type="video/mp4"
+        />
+        <p>
+          Your browser doesn't support HTML video. Here is a
+          <a href="myVideo.mp4" download="myVideo.mp4">link to the video</a>
+          instead.
+        </p>
+      </video>
+
+      <audio></audio>
+
       <!-- <picture>
         <source srcset="./assets/banner.avif" type="image/avif" />
         <source srcset="./assets/banner.webp" type="image/webp" />
         <img src="./assets/banner.jpg" alt="Banner image" />
       </picture> -->
 
-      <picture>
+      <!-- <picture>
         <source srcset="./assets/banner@1x.jpg" media="(max-width: 640px)" />
         <source srcset="./assets/banner@2x.jpg" media="(max-width: 1024px)" />
         <img src="./assets/banner@3x.jpg" alt="Banner image" />
-      </picture>
+      </picture> -->
 
       <!-- png -->
       <!-- jpg -->
