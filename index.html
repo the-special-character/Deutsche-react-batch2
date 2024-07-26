@@ -100,6 +100,86 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
-    <!-- <mark></mark> -->
+    <!-- accesibility -->
+    <form>
+      <div>
+        <label
+          for="txtName"
+          style="
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+          "
+          >Enter Your Name</label
+        >
+        <input type="text" id="txtName" required />
+      </div>
+      <fieldset style="border: 0">
+        <legend>Gender</legend>
+        <div>
+          <input type="radio" name="gender" id="male" />
+          <label for="male">Select Male</label>
+        </div>
+        <div>
+          <input type="radio" name="gender" id="female" />
+          <label for="female">Select Female</label>
+        </div>
+      </fieldset>
+      <button>Submit</button>
+    </form>
+
+    <!-- 100% -->
+    <!-- png 80% -->
+    <!-- webp 50% -->
+    <!-- avif 25% -->
+
+    <div>
+      <img src="" alt="" loading="lazy" />
+
+      <!-- <picture>
+        <source srcset="./assets/banner.avif" type="image/avif" />
+        <source srcset="./assets/banner.webp" type="image/webp" />
+        <img src="./assets/banner.jpg" alt="Banner image" />
+      </picture> -->
+
+      <picture>
+        <source srcset="./assets/banner@1x.jpg" media="(max-width: 640px)" />
+        <source srcset="./assets/banner@2x.jpg" media="(max-width: 1024px)" />
+        <img src="./assets/banner@3x.jpg" alt="Banner image" />
+      </picture>
+
+      <!-- png -->
+      <!-- jpg -->
+      <!-- webp -->
+      <!-- avif -->
+
+      <!-- svg -->
+    </div>
+
+    <!-- one html page should have only 1 h1 tag -->
+
+    <!-- semantic tags -->
+
+    <!-- Accesibiloty -->
+    <!-- <header>
+      <nav></nav>
+    </header>
+    <main>
+      <section>
+        <article></article>
+        <details>
+          <summary></summary>
+        </details>
+      </section>
+      <time></time>
+      <address></address>
+    </main>
+    <footer></footer> -->
   </body>
 </html>
