@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <style>
+      /* hebrew or arabic */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .wrapper {
+        display: flex;
+        gap: 10px;
+        /* column row column-reverse row-reverse */
+        flex-direction: row;
+        height: 60vh;
+        width: 60vw;
+
+        /* wrap no-wrap wrap-reverse */
+        flex-wrap: wrap;
+
+        /* row -> x axis */
+        /* column -> y axis */
+        /* justify-content: space-between; */
+
+        /* row -> y axis */
+        /* column -> x axis */
+        /* align-items: center; */
+
+        /* only work when flex-wrap: wrap */
+        /* align-content: flex-start; */
+
+        /* height: 100vh; */
+      }
+      .box {
+        height: 100%;
+        background-color: red;
+        font-size: 30px;
+        color: #fff;
+        padding: 10px;
+        flex: 1 1 270px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+  </body>
+</html>

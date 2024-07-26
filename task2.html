@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: antiquewhite;
+        height: 100vh;
+      }
+
+      .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50vw;
+        height: 50vh;
+        background-color: #fff;
+      }
+
+      .wrapper > div {
+        flex: 1 1 25vh;
+        overflow: hidden;
+      }
+
+      .wrapper > div > image {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="image">
+        <img
+          src="/assets/banner@1x.jpg"
+          alt="banner"
+          height="100%"
+          width="100%"
+        />
+      </div>
+      <div class="content">
+        <p>Lorem, ipsum.</p>
+        <h1>Lorem ipsum dolor sit amet consectetur.</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos,
+          qui!
+        </p>
+        <div>
+          <span> $149.99 </span>
+          <span>$169.99</span>
+        </div>
+        <button>Add To Cart</button>
+      </div>
+    </div>
+  </body>
+</html>
