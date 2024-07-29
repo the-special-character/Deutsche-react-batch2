@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <style>
+      body {
+        display: grid;
+        height: 100vh;
+        grid-template:
+          "header header header" 80px
+          "aside1 main aside2" 1fr
+          "aside1 footer aside2" 80px / 300px 1fr 300px;
+        gap: 10px;
+      }
+
+      body > * {
+        background-color: red;
+        font-size: 36px;
+        color: #fff;
+      }
+
+      body > header {
+        grid-area: header;
+      }
+
+      body > main {
+        grid-area: main;
+      }
+
+      header + aside {
+        grid-area: aside1;
+      }
+
+      main + aside {
+        grid-area: aside2;
+      }
+
+      body > footer {
+        grid-area: footer;
+      }
+
+      /* body > header {
+        grid-column: span 2;
+      }
+
+      body > aside {
+        grid-row: span 2;
+      } */
+    </style>
+  </head>
+  <body>
+    <header>Header</header>
+    <aside>Aside Left</aside>
+    <main>Main</main>
+    <aside>Aside Right</aside>
+    <footer>Footer</footer>
+  </body>
+</html>

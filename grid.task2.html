@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+
+    <style>
+      .wrapper {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 10px;
+        height: 100vh;
+
+        /* justify-content: center;
+        align-content: center; */
+
+        /* place-content: center; */
+
+        /* justify-items: center;
+        align-items: center; */
+
+        /* place-items: center; */
+      }
+
+      .box {
+        background-color: red;
+        font-size: 36px;
+        color: #fff;
+        display: grid;
+        place-content: center;
+      }
+
+      .box:nth-child(1) {
+        /* grid-column: 1 / 3; */
+        /* grid-row: 1 / -1; */
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .box:nth-child(4) {
+        /* grid-column: 5 / -1; */
+        grid-column: span 2;
+      }
+
+      .box:nth-child(5) {
+        /* grid-column: 3 / 5; */
+        grid-column: span 2;
+      }
+
+      .box:nth-child(6) {
+        /* grid-column: 5 / -1; */
+        grid-column: span 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+    </div>
+  </body>
+</html>
