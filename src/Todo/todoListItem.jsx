@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,17 +12,51 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { useState } from "react";
+import { Input } from "../components/ui/input";
+import { CheckIcon } from "@radix-ui/react-icons";
 
-const TodoListItem = () => {
+const TodoListItem = ({ item, updateTodo, deleteTodo }) => {
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [updatedText, setUpdatedText] = useState(item.text);
+
+  const toggleIsUpdating = () => setIsUpdating((val) => !val);
+
+  const updateItem = (event) => {
+    event.preventDefault();
+    updateTodo({ ...item, text: updatedText });
+    toggleIsUpdating();
+  };
+
   return (
-    <li className="flex items-center space-x-2 m-4">
-      <Checkbox id="terms" />
-      <label
-        htmlFor="terms"
-        className="flex-1 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-      >
-        Accept terms and conditions
-      </label>
+    <li className="flex items-center gap-4 m-4">
+      <Checkbox
+        checked={item.isDone}
+        id="terms"
+        onCheckedChange={(checked) => updateTodo({ ...item, isDone: checked })}
+      />
+      {isUpdating ? (
+        <form className="flex-1 flex gap-4" onSubmit={updateItem}>
+          <Input
+            value={updatedText}
+            onChange={(e) => setUpdatedText(e.target.value)}
+          />
+          <Button type="submit" size="icon">
+            <CheckIcon className="h-4 w-4" />
+          </Button>
+        </form>
+      ) : (
+        <>
+          <label
+            htmlFor="terms"
+            className="flex-1 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            {item.text}
+          </label>
+          <Button onClick={toggleIsUpdating}>Update</Button>
+        </>
+      )}
+
       <AlertDialog>
         <AlertDialogTrigger asChild>
           <Button>Delete</Button>
@@ -36,12 +71,24 @@ const TodoListItem = () => {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
+            <AlertDialogAction onClick={() => deleteTodo(item)}>
+              Continue
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
     </li>
   );
+};
+
+TodoListItem.propTypes = {
+  item: PropTypes.exact({
+    id: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    isDone: PropTypes.bool.isRequired,
+  }).isRequired,
+  updateTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
 };
 
 export default TodoListItem;
