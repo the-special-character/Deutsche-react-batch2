@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom/client";
 import App from "./components/customInput";
 import Counter from "./components/counter";
+import Test from "./components/test";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div>
@@ -11,5 +12,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <App label="Password" type="password" id="password" />
     <App label="Confirm Password" type="password" id="confirmPassword" />
     <Counter />
+    <Test name="yagnesh" />
   </div>
 );
