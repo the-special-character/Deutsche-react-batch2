@@ -12,21 +12,31 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Input } from "../components/ui/input";
 import { CheckIcon } from "@radix-ui/react-icons";
 
 const TodoListItem = ({ item, updateTodo, deleteTodo }) => {
+  console.log("TodoListItem render");
   const [isUpdating, setIsUpdating] = useState(false);
-  const [updatedText, setUpdatedText] = useState(item.text);
+  const updatedTextRef = useRef(null);
 
   const toggleIsUpdating = () => setIsUpdating((val) => !val);
 
   const updateItem = (event) => {
     event.preventDefault();
-    updateTodo({ ...item, text: updatedText });
+    const updatedText = updatedTextRef.current;
+    const text = updatedText.value;
+    updateTodo({ ...item, text });
+    updatedText.value = "";
     toggleIsUpdating();
   };
+
+  useEffect(() => {
+    if (isUpdating && updatedTextRef.current) {
+      updatedTextRef.current.value = item.text;
+    }
+  }, [item.text, isUpdating]);
 
   return (
     <li className="flex items-center gap-4 m-4">
@@ -37,10 +47,7 @@ const TodoListItem = ({ item, updateTodo, deleteTodo }) => {
       />
       {isUpdating ? (
         <form className="flex-1 flex gap-4" onSubmit={updateItem}>
-          <Input
-            value={updatedText}
-            onChange={(e) => setUpdatedText(e.target.value)}
-          />
+          <Input ref={updatedTextRef} />
           <Button type="submit" size="icon">
             <CheckIcon className="h-4 w-4" />
           </Button>
@@ -91,4 +98,4 @@ TodoListItem.propTypes = {
   deleteTodo: PropTypes.func.isRequired,
 };
 
-export default TodoListItem;
+export default memo(TodoListItem);
